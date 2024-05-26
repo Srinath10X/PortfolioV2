@@ -1,0 +1,115 @@
+main {
+  height: 87vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--primary-text);
+
+  h1 {
+    --glow-radius: 10rem;
+    --glow-primary: hsl(210, 100%, 56%);
+    --glow-secondary: hsl(217, 92%, 76%);
+    --glow-x-offset-drop-shadow: -3rem;
+    --glow-x-offset-text-shadow: 3rem;
+    font-size: clamp(2.25rem, 5vw, 5rem);
+    font-weight: bold;
+    text-align: center;
+    filter: drop-shadow(
+      var(--glow-x-offset-drop-shadow) var(--glow-x-offset-drop-shadow)
+        var(--glow-radius) var(--glow-primary)
+    );
+    text-shadow: var(--glow-x-offset-text-shadow)
+      var(--glow-x-offset-text-shadow) calc(var(--glow-radius) / 0.01)
+      var(--glow-secondary);
+
+    &:active,
+    &:hover {
+      user-select: none;
+      cursor: pointer;
+    }
+
+    [optimize] {
+      color: var(--text-blue);
+    }
+  }
+
+  p {
+    font-size: clamp(8px, 2vw, 24px);
+    font-weight: 550;
+    padding: 1rem;
+    margin: 0 1rem;
+    text-align: center;
+    filter: drop-shadow(0 0 5em dodgerblue);
+    user-select: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 769px) {
+      & {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    --btn-margin: 1rem;
+    --btn-height: 3rem;
+    --btn-width: 12rem;
+
+    [btn]:nth-child(1) {
+      margin: var(--btn-margin);
+      height: var(--btn-height);
+      width: var(--btn-width);
+      outline: none;
+      border: 1px solid var(--primary-text);
+      background-color: var(--primary-text);
+      border-radius: 0.5rem;
+      font-weight: bold;
+    }
+
+    [btn]:nth-child(2) {
+      margin: var(--btn-margin);
+      height: var(--btn-height);
+      width: var(--btn-width);
+      outline: none;
+      border: 2px solid var(--text-blue);
+      background-color: var(--primary-background);
+      color: var(--primary-text);
+      border-radius: 0.5rem;
+      font-weight: bold;
+      transition: 0.4s ease;
+    }
+
+    [btn]:nth-child(1):hover,
+    [btn]:nth-child(2):hover {
+      cursor: pointer;
+    }
+
+    [btn]:nth-child(2):hover {
+      background-color: var(--primary-text);
+      color: var(--primary-background);
+    }
+
+    @media screen and (max-width: 769px) {
+      --btn-width: clamp(50vw, 100vw - 30vw, 90vw);
+
+      & {
+        flex-direction: column;
+      }
+
+      [btn]:nth-child(1),
+      [btn]:nth-child(2) {
+        width: var(--btn-width);
+      }
+    }
+
+    @media screen and (max-width: 540px) {
+      --btn-width: 80vw;
+    }
+  }
+}
