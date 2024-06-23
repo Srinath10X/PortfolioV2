@@ -77,7 +77,8 @@ main {
       height: var(--btn-height);
       width: var(--btn-width);
       outline: none;
-      border: 2px solid var(--text-blue);
+      /* border: 2px solid var(--text-blue); */
+      border: 2px solid var(--primary-text);
       background-color: var(--primary-background);
       color: var(--primary-text);
       border-radius: 0.5rem;
